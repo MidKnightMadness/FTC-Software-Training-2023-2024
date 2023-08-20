@@ -5,5 +5,5 @@ Goals:
 
 #Structure
 The repository is split into 2 parts:
-* Examples: Explains how the concept works. Gives base understanding
+* Lessons: Explains how the concept works. Gives base understanding
 * Challenges: Gives challenges of concepts either by themselves or combined with others
