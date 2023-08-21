@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.Lessons;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class MotorLesson extends OpMode {
     // Motors are a bit more complex than servos

@@ -16,4 +16,6 @@ public class LinearOpModeLesson extends LinearOpMode { //Make sure to put "exten
 
         }
     }
+
+    // Most of my lessons will be in OpMode. All my lessons are able to be adapted to LinearOpMode, so you can do so if you prefer it
 }
