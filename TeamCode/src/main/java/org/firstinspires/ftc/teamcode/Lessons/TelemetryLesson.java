@@ -15,7 +15,7 @@ public class TelemetryLesson extends LinearOpMode {
 
             telemetry.addData("number:",number); // Add data requires a caption in front
 
-            telemetry.addLine("number: "+number); // Add line is like a regular print statement
+            telemetry.addLine("number: " + number); // Add line is like a regular print statement
         }
     }
 }
