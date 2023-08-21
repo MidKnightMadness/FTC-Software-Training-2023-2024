@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class MotorLesson extends OpMode {
-    // Finally, the moment you've been waiting for!
+    // Motors are a bit more complex than servos
     // There are 2 ways to code motors. Power and Encoders
 
     // First we declare the motors as variables
@@ -16,7 +16,7 @@ public class MotorLesson extends OpMode {
 
     @Override
     public void init(){
-        // Now this next part is important. We gotta initialize the motors
+        // Now we gotta initialize the motors
         PowerMotor = hardwareMap.get(DcMotorEx.class, "PowerMotor");
         EncoderMotor = hardwareMap.get(DcMotorEx.class, "EncoderMotor");
         // First parameter is initializing the motor. Second is the configuration name
