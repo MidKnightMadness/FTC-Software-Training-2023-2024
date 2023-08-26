@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode.Lessons;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
-import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-public class DistanceSensorLesson extends OpMode {
+@TeleOp
+public class H_DistanceSensorLesson extends OpMode {
 
     DistanceSensor distSensor;
 

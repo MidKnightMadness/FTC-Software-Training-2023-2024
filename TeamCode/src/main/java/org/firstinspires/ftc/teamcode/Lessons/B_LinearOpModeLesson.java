@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 //LinearOpMode is another format of coding java in FTC (sorta). I personally use it for autonomous and use OpMode for TeleOp
 
 @TeleOp
-public class LinearOpModeLesson extends LinearOpMode { //Make sure to put "extends LinearOpMode"
+public class B_LinearOpModeLesson extends LinearOpMode { //Make sure to put "extends LinearOpMode"
     @Override
     public void runOpMode(){ // This is the function where the robot does stuff
         //Code here is for initialization

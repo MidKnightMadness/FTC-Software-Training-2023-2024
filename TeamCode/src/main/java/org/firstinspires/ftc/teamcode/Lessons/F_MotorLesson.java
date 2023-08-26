@@ -1,12 +1,15 @@
 package org.firstinspires.ftc.teamcode.Lessons;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
-public class MotorLesson extends OpMode {
+@TeleOp
+public class F_MotorLesson extends OpMode {
     // Motors are a bit more complex than servos
     // There are 2 ways to code motors. Power and Encoders
+    // Technically theres more, but you can explore those yourself
 
     // First we declare the motors as variables
     // I prefer to use Ex because its said to be better and sounds cooler

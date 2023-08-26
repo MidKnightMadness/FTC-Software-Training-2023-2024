@@ -1,10 +1,11 @@
 package org.firstinspires.ftc.teamcode.Lessons;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
-import com.qualcomm.robotcore.hardware.TouchSensor;
 
-public class TouchSensorLesson extends OpMode {
+@TeleOp
+public class G_TouchSensorLesson extends OpMode {
     // Moving on to sensors now
     // Since im starting to get tired making comments for these lessons, I will assume that you already know a few things
     // 1. A variable is needed for all sensors

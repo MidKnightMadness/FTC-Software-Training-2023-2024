@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp
-public class TelemetryLesson extends LinearOpMode {
+public class C_TelemetryLesson extends LinearOpMode {
     int number = 5; // variable number set to 5 (you probably already know this)
     @Override
     public void runOpMode(){

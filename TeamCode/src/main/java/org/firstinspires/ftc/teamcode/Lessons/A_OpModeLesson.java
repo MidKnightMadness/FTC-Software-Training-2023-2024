@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
 @TeleOp //This determines what kind of program you are using (TeleOp or Auto). TeleOp is better for experimentation because Auto ends the program after 30 seconds
-public class OpModeLesson extends OpMode { //Make sure to put "extends OpMode"
+public class A_OpModeLesson extends OpMode { //Make sure to put "extends OpMode"
     //There are 2 phases in an FTC program. Initialize and Run Mode
 
     @Override //Honestly idk exactly what it does, but its kinda important to make sure to have it before a method
