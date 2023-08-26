@@ -1,3 +1,6 @@
+# Directory
+Go into TeamCode/java/org.firstinspires.ftc.teamcode to access the lessons
+
 # Software Training
 Goals:
 * Introduce members to Java in FTC - Telemetry, Servos, DcMotor, Sensors, and Computer Vision
