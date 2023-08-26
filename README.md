@@ -1,5 +1,5 @@
 # Directory
-Go into TeamCode/java/org.firstinspires.ftc.teamcode to access the lessons
+Go into TeamCode/src/main/java/org/firstinspires/ftc/teamcode to access the lessons
 
 # Software Training
 Goals:
