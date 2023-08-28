@@ -8,5 +8,5 @@ Goals:
 
 # Structure
 The training is split into 2 parts:
-* Lessons: Explains how the concept works. Gives base understanding
+* Lessons: Explains the concept and gives an example. Provides base understanding
 * Challenges (In Progress): Gives challenges of concepts using what the students learn from the lessons
