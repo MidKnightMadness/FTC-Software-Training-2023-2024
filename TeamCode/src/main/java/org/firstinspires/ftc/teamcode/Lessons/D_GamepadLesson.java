@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 @TeleOp
 public class D_GamepadLesson extends OpMode {
 
+    // This is used for later in the lesson
     Gamepad currentGamepad1 = new Gamepad();
     Gamepad previousGamepad1 = new Gamepad();
 
@@ -23,7 +24,7 @@ public class D_GamepadLesson extends OpMode {
         //There are 2 gamepads. This is because most robots are controlled by 2 drivers for efficiency
         // We will only be using gamepad1 for this demonstration
         //Everything here is pretty self explanatory. I'll try to explain anything that looks confusing
-        //Honestly this would make more sense if there was a photo or smthing
+        //Honestly this would make more sense if there was a photo or something
 
         //Left Stick
         telemetry.addData("Left stick x", gamepad1.left_stick_x);
@@ -57,16 +58,16 @@ public class D_GamepadLesson extends OpMode {
 
         //Touch pad (pretty cool but kinda useless ngl)
         //There are 2 fingers for when more than one finger is on the touchpad
-        telemetry.addData("Touchpad x",gamepad1.touchpad_finger_1_x);
-        telemetry.addData("Touchpad y",gamepad1.touchpad_finger_1_y);
+        telemetry.addData("Finger 1 Touchpad x",gamepad1.touchpad_finger_1_x);
+        telemetry.addData("Finger 1 Touchpad y",gamepad1.touchpad_finger_1_y);
         telemetry.addData("Finger 2 Touchpad x",gamepad1.touchpad_finger_2_x);
         telemetry.addData("Finger 2 Touchpad y",gamepad1.touchpad_finger_2_y);
 
         //Misc
-        telemetry.addData("Start",gamepad1.start); // For playstation its options
-        telemetry.addData("Back",gamepad1.back); // For playstation its share
+        telemetry.addData("Start",gamepad1.start); // For playstation its the options button
+        telemetry.addData("Back",gamepad1.back); // For playstation its the share button
 
-
+        // Used to check if button has already been pressed
         previousGamepad1.copy(currentGamepad1);
         currentGamepad1.copy(gamepad1);
 
@@ -74,7 +75,7 @@ public class D_GamepadLesson extends OpMode {
             gamepad1.rumble(1000); //vibrates the gamepad for 1 second
         }
 
-        if (currentGamepad1.b && !previousGamepad1.b) { //This is known as a falling edge detector. Same thing as rising, but only when button is released
+        if (!currentGamepad1.b && previousGamepad1.b) { //This is known as a falling edge detector. Same thing as rising, but only when button is released
             gamepad1.rumble(1000); //vibrates the gamepad for 1 second
         }
 

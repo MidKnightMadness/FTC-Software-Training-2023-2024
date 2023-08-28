@@ -16,7 +16,7 @@ public class E_ServoLesson extends OpMode {
     public void init(){
         //Initialize servos
         ContinuousServo = hardwareMap.get(Servo.class,"ContinuousServo");
-        PointServo = hardwareMap.get(Servo.class,"ContinuousServo");
+        PointServo = hardwareMap.get(Servo.class,"PointServo");
     }
     @Override
     public void start(){

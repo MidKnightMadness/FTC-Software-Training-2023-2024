@@ -12,7 +12,7 @@ public class F_MotorLesson extends OpMode {
     // Technically theres more, but you can explore those yourself
 
     // First we declare the motors as variables
-    // I prefer to use Ex because its said to be better and sounds cooler
+    // I prefer to use DcMotorEx over DcMotor because its said to be better and sounds cooler
     DcMotorEx PowerMotor;
     DcMotorEx EncoderMotor;
 
@@ -25,10 +25,10 @@ public class F_MotorLesson extends OpMode {
         //You will need to set the config on the driver hub
 
         //Next up is setting the modes of the motors
-        EncoderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); //Sets encoder value to 0 at the start
-        EncoderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION); // You can set the motor to an encoder value. You can also use RUN_USING_ENCODERS which is slightly different
+        EncoderMotor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER); //Sets encoder value to 0 at the start
+        EncoderMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION); // You can set the motor to an encoder value. You can also use RUN_USING_ENCODERS which is slightly different
         // You can also set the PID values for the encoder motor, but that's for another lesson (probably)
-        PowerMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); // encoders are not needed when just using power
+        PowerMotor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER); // encoders are not needed when just using power
     }
     @Override
     public void start(){

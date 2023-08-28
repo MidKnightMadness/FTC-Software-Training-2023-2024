@@ -33,6 +33,6 @@ public class G_TouchSensorLesson extends OpMode {
     }
     @Override
     public void loop(){
-        telemetry.addData("Button Pressed:",Button.getState()); // returns as a boolean (pressed is true, not pressed is false)
+        telemetry.addData("Button Pressed:",Button.getState()); // returns as a boolean (pressed is false, not pressed is true)
     }
 }
