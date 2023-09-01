@@ -22,6 +22,7 @@ public class J_ImuLesson extends OpMode {
         imuParameters.angleUnit = BNO055IMU.AngleUnit.DEGREES; //Sets angle units for imu (degrees or radians)
         imuParameters.calibrationDataFile = "BNO055IMUCalibration.json"; // Calibrates imu (the .json file should already exist in the project)
         imu = hardwareMap.get(BNO055IMU.class,"imu"); // Declares IMU
+        imu.initialize(imuParameters);
     }
     @Override
     public void start(){
