@@ -1,15 +1,23 @@
 package org.firstinspires.ftc.teamcode.Lessons;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AngularVelocity;
+import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 public class K_MechanumDrivingLessonPart1 extends OpMode {
-    //There are many ways to code a mechanum robot, so the tutorial will be split into 3 parts
-    //Theres probably more than 3 ways to do this, but these are easiest or most reliable
-    // We'll start off with the simplest method
+
+    BNO055IMU imu;
+    Orientation angles;
 
     //Making the wheel variables
     DcMotorEx FR; // Front right wheel
@@ -27,24 +35,64 @@ public class K_MechanumDrivingLessonPart1 extends OpMode {
         BR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         BL = hardwareMap.get(DcMotorEx.class,"BL");
         BL.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+
+        // IMU
+        BNO055IMU.Parameters imuParameters = new BNO055IMU.Parameters(); //Declares parameters for imu
+        imuParameters.angleUnit = BNO055IMU.AngleUnit.DEGREES; //Sets angle units for imu (degrees or radians)
+        imuParameters.calibrationDataFile = "BNO055IMUCalibration.json"; // Calibrates imu (the .json file should already exist in the project)
+        imu = hardwareMap.get(BNO055IMU.class,"imu"); // Declares IMU
+        imu.initialize(imuParameters);
     }
     @Override
     public void start(){
 
     }
+
+    double [] powers = {0.0, 0.0, 0.0, 0.0};
+
     @Override
     public void loop(){
+        // IMU
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.RADIANS); //Gets angle values from IMU
+        AngularVelocity velocity = imu.getAngularVelocity(); //Gets rate of change of angles
+        Acceleration acceleration = imu.getAcceleration(); //Gets rate of change of velocity
+
         double fwdSpeed = -gamepad1.left_stick_y;
         double strafeSpeed = gamepad1.left_stick_x;
         double turnSpeed = gamepad1.right_stick_x;
 
-        // Theres probably some math behind it, but since its not as accurate as the other methods, its not worth looking into
-        FR.setPower(fwdSpeed-turnSpeed-strafeSpeed);
-        FL.setPower(fwdSpeed+turnSpeed+strafeSpeed);
-        BR.setPower(fwdSpeed-turnSpeed+strafeSpeed);
-        BL.setPower(fwdSpeed+turnSpeed-strafeSpeed);
-        // don't worry I know exactly how the other 2 methods work
 
-        //Parts 2 and 3 Coming soon
+
+        double newX = strafeSpeed * Math.cos(angles.thirdAngle - Math.PI / 2.0) + fwdSpeed * Math.sin(angles.thirdAngle - Math.PI / 2.0);
+        double newY = - strafeSpeed * Math.sin(angles.thirdAngle - Math.PI / 2.0) + fwdSpeed * Math.cos(angles.thirdAngle - Math.PI / 2.0);
+
+        powers [0] = newY+turnSpeed-newX;
+        powers [1] = newY-turnSpeed-newX;
+        powers [2] = newY+turnSpeed+newX;
+        powers [3] = -newY+turnSpeed-newX;
+
+        double maxVal = 0.0;
+
+        for(int i = 0; i < 4; i++){
+            if(Math.abs(powers[i]) > maxVal){
+                maxVal = Math.abs(powers[i]);
+            }
+        }
+
+        if(maxVal > 1.0){
+            for(int i = 0; i < 4; i++){
+                powers[i] /= maxVal;
+            }
+        }
+
+        FL.setPower(powers[0]);
+        FR.setPower(powers[1]);
+        BL.setPower(powers[2]);
+        BR.setPower(powers[3]);
+        telemetry.addData("FL",powers[0]);
+        telemetry.addData("FR",powers[1]);
+        telemetry.addData("BL",powers[2]);
+        telemetry.addData("BR",powers[3]);
+        telemetry.update();
     }
 }
